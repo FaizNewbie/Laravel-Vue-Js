@@ -27,6 +27,7 @@
         "@coreui/coreui": "^2.1.9",
         "@fortawesome/fontawesome-free": "^5.8.1",
         "perfect-scrollbar": "^1.4.0",
-        "simple-line-icons": "^2.4.1"
+        "simple-line-icons": "^2.4.1",
+        "vue-router": "^3.0.6"
     }
 }

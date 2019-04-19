@@ -9,6 +9,7 @@
     <meta name="description" content="Laravel Vue Js">
     <meta name="author" content="Muhammad Faizal Ansyori">
     <meta name="keyword" content="Laravel Vue JS">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Lara App</title>
     <link rel="stylesheet" href="/css/app.css">
 </head>
@@ -58,7 +59,7 @@
             </li>
         </ul>
     </header>
-    <div class="app-body">
+    <div class="app-body" id="app">
         <div class="sidebar">
             <div class="sidebar-header"><img class="img-avatar" src="{{asset('storage/img_app/me.jpg')}}" alt="Avatar">
                 <div><strong>{{Auth::user()->name}}</strong></div>
@@ -72,9 +73,9 @@
                             <div class="dropdown-header text-center">
                                 <strong>OPSI</strong>
                             </div>
-                            <a class="dropdown-item" href="#">
+                            <router-link class="dropdown-item" to="/Profile">
                                 <i class="fa fa-user"></i> Profil
-                            </a>
+                            </router-link>
                             <a class="dropdown-item" href="#">
                                 <i class="fa fa-wrench"></i> Pengaturan
                             </a>
@@ -89,9 +90,9 @@
                 <ul class="nav">
                     <li class="nav-title">Dashboard</li>
                     <li class="nav-item">
-                        <a class="nav-link" href="main.html">
+                        <router-link class="nav-link" to="/Dashboard">
                             <i class="nav-icon icon-speedometer"></i> Dashboard
-                        </a>
+                        </router-link>
                     </li>
                     <li class="nav-item nav-dropdown">
                         <a class="nav-link nav-dropdown-toggle" href="#">
@@ -120,7 +121,6 @@
             <button class="sidebar-minimizer brand-minimizer" type="button"></button>
         </div>
         <main class="main">
-
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">Home</li>
                 <li class="breadcrumb-item"><a href="#">Admin</a></li>
@@ -140,7 +140,9 @@
                 </li>
             </ol>
             <div class="container-fluid">
-                <div id="ui-view"></div>
+                <div id="ui-view">
+                        <router-view></router-view>
+                </div>
             </div>
         </main>
     </div>

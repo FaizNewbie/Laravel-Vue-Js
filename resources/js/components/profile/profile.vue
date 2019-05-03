@@ -6,7 +6,7 @@
                     <div class="card-header">Profil</div>
 
                     <div class="card-body">
-                        Profil
+                        <span class="text-pink">Warna Pink</span>Profil
                     </div>
                 </div>
             </div>

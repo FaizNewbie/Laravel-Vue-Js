@@ -54,7 +54,13 @@
                         <i class="fa fa-wrench"></i> Pengaturan
                     </a>
                     <div class="divider"></div>
-                    <a class="dropdown-item" href="#"><i class="fa fa-lock"></i> Logout</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <i class="fa fa-lock"></i> 
+                        {{ __('Logout') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                 </div>
             </li>
         </ul>
@@ -79,9 +85,6 @@
                             <a class="dropdown-item" href="#">
                                 <i class="fa fa-wrench"></i> Pengaturan
                             </a>
-                            <a class="dropdown-item" href="#">
-                                <i class="fa fa-lock"></i> Logout
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -96,25 +99,20 @@
                     </li>
                     <li class="nav-item nav-dropdown">
                         <a class="nav-link nav-dropdown-toggle" href="#">
-                            <i class="nav-icon icon-cursor"></i> Buttons
+                            <i class="nav-icon icon-settings"></i> Manajemen
                         </a>
                         <ul class="nav-dropdown-items">
                             <li class="nav-item">
-                                <a class="nav-link" href="buttons/buttons.html">
-                                    <i class="nav-icon icon-cursor"></i> Buttons
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="buttons/brand-buttons.html">
-                                    <i class="nav-icon icon-cursor"></i> Brand Buttons
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="buttons/button-group.html">
-                                    <i class="nav-icon icon-cursor"></i> Buttons Group
-                                </a>
+                                <router-link :to="{ name: 'user'}" class="nav-link">
+                                    <i class="nav-icon icon-people"></i> User
+                                </router-link>
                             </li>
                         </ul>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link" to="/Profile">
+                            <i class="nav-icon icon-user"></i> Profil
+                        </router-link>
                     </li>
                 </ul>
             </nav>
@@ -142,6 +140,7 @@
             <div class="container-fluid">
                 <div id="ui-view">
                         <router-view></router-view>
+                        <vue-progress-bar></vue-progress-bar>
                 </div>
             </div>
         </main>
